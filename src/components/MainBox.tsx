@@ -50,8 +50,10 @@ const MainBox = () => {
   function spawnOval() {
     const oval = document.createElement("div");
     oval.classList.add("oval");
-    oval.style.top = `${Math.random() * 100}%`;
-    oval.style.left = `${Math.random() * 100}%`;
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    oval.style.top = `${Math.random() * (screenHeight - 150)}px`;
+    oval.style.left = `${Math.random() * (screenWidth - 50)}px`;
     document.body.appendChild(oval);
     return oval;
   }
