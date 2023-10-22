@@ -46,6 +46,38 @@ const MainBox = () => {
     }
   }, []);
 
+  //ovals animation
+  function spawnOval() {
+    const oval = document.createElement("div");
+    oval.classList.add("oval");
+    oval.style.top = `${Math.random() * 100}%`;
+    oval.style.left = `${Math.random() * 100}%`;
+    document.body.appendChild(oval);
+    return oval;
+  }
+
+  function spawnOvals() {
+    const maxOvals = 15;
+    function spawn() {
+      const ovals = document.querySelectorAll(".oval");
+      if (ovals.length >= maxOvals) {
+        return;
+      }
+      const oval = spawnOval();
+      const delay = Math.random() * 5000;
+      setTimeout(() => {
+        oval.style.opacity = "0";
+        oval.addEventListener("transitionend", () => {
+          oval.remove();
+        });
+      }, delay);
+      setTimeout(spawn, Math.random() * 5000);
+    }
+    setTimeout(spawn, Math.random() * 5000);
+  }
+
+  spawnOvals();
+
   return (
     <div className="MainBox">
       <div className="adviceNumber">Advice #{adviceNumber}</div>

@@ -8,6 +8,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .MainDiv{
   height: 50vh;
@@ -91,6 +92,41 @@ body{
     transform: scale(1);
   }
 }
+@keyframes oval {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.oval {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  border-radius: 50%;
+  animation: oval 10s infinite;
+  z-index: -1;
+}
+
+.oval::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 20px 10px rgba(31, 147, 137, 0.5);
+  transform: translate(-50%, -50%);
+}
+
 
 @media screen and (min-width: 770px) {
   .buttonContainer button:hover {
