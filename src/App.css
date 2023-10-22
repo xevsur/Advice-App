@@ -53,6 +53,7 @@ body{
   position: fixed;
   transform: translateY(1.8rem);
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .buttonContainer button{
